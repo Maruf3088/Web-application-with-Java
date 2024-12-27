@@ -29,7 +29,18 @@ public class ViewResultServlet extends HttpServlet {
                     result.setId(resultSet.getInt("id"));
                     result.setStudentId(resultSet.getString("studentId"));  // Set student ID
                     result.setStudentName(resultSet.getString("studentName"));            // Set student name
-                    result.setCgpa(resultSet.getFloat("cgpa"));             // Set CGPA value
+                    result.setCgpa(resultSet.getFloat("cgpa"));
+                    result.setCHEM2301Grade(resultSet.getString("CHEM2301Grade"));
+                    result.setCSE2321Grade(resultSet.getString("CSE2321Grade"));
+                    result.setCSE2322Grade(resultSet.getString("CSE2322Grade"));
+                    result.setCSE2323Grade(resultSet.getString("CSE2323Grade"));
+                    result.setCSE2324Grade(resultSet.getString("CSE2324Grade"));
+                    result.setCSE2340Grade(resultSet.getString("CSE2340Grade"));
+                    result.setMATH2307Grade(resultSet.getString("MATH2307Grade"));
+                    result.setSTAT2311Grade(resultSet.getString("STAT2311Grade"));
+                    result.setURED2302Grade(resultSet.getString("URED2302Grade"));
+
+// Set CGPA value
 
                     // Add the contact to the list
                     resultList.add(result);

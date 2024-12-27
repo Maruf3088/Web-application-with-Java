@@ -7,6 +7,10 @@
   <title>Add Student | Student Management System</title>
   <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    body {
+      background-color: #f4f7fc;
+      font-family: 'Arial', sans-serif;
+    }
     .container {
       width: 90%;
       max-width: 1200px;
@@ -15,18 +19,98 @@
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-weight: 700;
+      color: #333;
+    }
+
+    .header p {
+      color: #555;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    }
+
+    .btn-primary {
+      background-color: #28a745;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #218838;
+    }
+
+    .btn-primary:focus {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    }
+
+    .invalid-feedback {
+      font-size: 14px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .col-md-6 {
+      flex: 1;
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      .row {
+        flex-direction: column;
+      }
+      .col-md-6 {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
-<body class="bg-opacity-10 bg-light">
+<body>
 
-<div class="container mt-5 p-4 bg-white border rounded shadow">
+<div class="container mt-5 p-4 bg-white rounded shadow">
   <%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
   <!-- Header Section -->
-  <div class="text-center mt-3 mb-4">
-    <h1 class="h2 fw-bold">Student Management System </h1>
-    <h1 class="h4 fw-bold">Add New Student</h1>
-    <p class="text-muted">Fill in the student's information below to add them to the system.</p>
+  <div class="header">
+    <h1 class="h2 pt-4">Student Management System</h1>
+    <h4 class="fw-bold">Add New Student</h4>
+    <p class="text-muted">Please fill in the student's information to add them to the system.</p>
   </div>
 
   <!-- Add Student Form -->
@@ -36,14 +120,14 @@
       <div class="col-md-6">
         <!-- Student ID -->
         <div class="form-group mb-3">
-          <label for="studentId" class="form-label">Student ID <span class="text-danger">*</span></label>
+          <label for="studentId">Student ID <span class="text-danger pt-4">*</span></label>
           <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Enter student ID" required>
           <div class="invalid-feedback">Please enter the student ID.</div>
         </div>
 
         <!-- Student Name -->
         <div class="form-group mb-3">
-          <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+          <label for="name">Full Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Enter student's full name" required>
           <div class="invalid-feedback">Please enter the student's name.</div>
         </div>
@@ -53,14 +137,14 @@
       <div class="col-md-6">
         <!-- Department -->
         <div class="form-group mb-3">
-          <label for="department" class="form-label">Department Name <span class="text-danger">*</span></label>
+          <label for="department">Department Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="department" name="department" placeholder="Enter department name" required>
           <div class="invalid-feedback">Please enter the department name.</div>
         </div>
 
         <!-- Section -->
         <div class="form-group mb-3">
-          <label for="section" class="form-label">Section Name <span class="text-danger">*</span></label>
+          <label for="section">Section Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="section" name="section" placeholder="Enter section name" required>
           <div class="invalid-feedback">Please enter the section name.</div>
         </div>
@@ -69,7 +153,7 @@
 
     <!-- Submit Button -->
     <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary px-5">Add Student</button>
+      <button type="submit" class="btn btn-primary">Add Student</button>
     </div>
   </form>
 </div>
@@ -92,5 +176,6 @@
     });
   })();
 </script>
+
 </body>
 </html>

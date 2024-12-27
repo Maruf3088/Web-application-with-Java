@@ -1,17 +1,17 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%
-  // Define the list of courses
-  List<String> courses = Arrays.asList(
-          "CHEM-2301",
-          "CSE-2321",
-          "CSE-2322",
-          "CSE-2323",
-          "CSE-2324",
-          "CSE-2340",
-          "MATH-2307",
-          "STAT-2311",
-          "URED-2302"
+  // Define the list of courses with titles
+  List<String[]> courses = Arrays.asList(
+          new String[] {"CHEM2301", "Chemistry"},
+          new String[] {"CSE2321", "Data Structure"},
+          new String[] {"CSE2322", "Data Structure Lab"},
+          new String[] {"CSE2323", "Digital Logic Design"},
+          new String[] {"CSE2324", "Digital Logic Design Lab"},
+          new String[] {"CSE2340", "Software Development 1"},
+          new String[] {"MATH2307", "Mathematics-III"},
+          new String[] {"STAT2311", "Statistics"},
+          new String[] {"URED2302", "Principle of Quran and Hadith"}
   );
   request.setAttribute("courses", courses);
 %>
@@ -28,7 +28,6 @@
       color: #333;
       font-family: 'Arial', sans-serif;
       padding-bottom: 50px;
-
     }
 
     .course-table th {
@@ -106,7 +105,7 @@
 <body>
 <div class="container mt-5">
   <%@ include file="/WEB-INF/includes/navbar.jsp" %>
-  <h2 class="text-center text-primary">Add Student Result</h2>
+  <h2 class="text-center text-primary fw-bold pt-4">Add Student Result</h2>
 
   <form action="submit-result" method="post">
     <div class="mb-3">
@@ -121,7 +120,8 @@
     <table class="table table-bordered course-table">
       <thead>
       <tr>
-        <th>Course Name</th>
+        <th>Course Code</th>
+        <th>Course Title</th>
         <th>Mid Result</th>
         <th>Final Result</th>
         <th>Attendance</th>
@@ -130,14 +130,15 @@
       </tr>
       </thead>
       <tbody>
-      <% for (String course : courses) { %>
+      <% for (String[] course : courses) { %>
       <tr>
-        <td><%= course %></td>
-        <td><input type="number" name="<%= course %>Mid" class="form-control" required></td>
-        <td><input type="number" name="<%= course %>Final" class="form-control" required></td>
-        <td><input type="number" name="<%= course %>Attendance" class="form-control" required></td>
-        <td><input type="number" name="<%= course %>Assignment" class="form-control" required></td>
-        <td><input type="text" name="<%= course %>Grade" class="form-control grade" readonly></td>
+        <td><%= course[0] %></td>
+        <td><%= course[1] %></td>
+        <td><input type="number" name="<%= course[0] %>Mid" class="form-control" required></td>
+        <td><input type="number" name="<%= course[0] %>Final" class="form-control" required></td>
+        <td><input type="number" name="<%= course[0] %>Attendance" class="form-control" required></td>
+        <td><input type="number" name="<%= course[0] %>Assignment" class="form-control" required></td>
+        <td><input type="text" name="<%= course[0] %>Grade" class="form-control grade" readonly></td>
       </tr>
       <% } %>
       </tbody>
@@ -219,7 +220,6 @@
     const cgpa = totalCourses > 0 ? (totalGradePoints / totalCourses).toFixed(2) : '0.00';
     const gradeElement = document.getElementById('total-grade');
     gradeElement.value = cgpa;  // Use 'value' instead of 'Value'
-
   });
 </script>
 </body>
