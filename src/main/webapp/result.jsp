@@ -1,7 +1,6 @@
 <jsp:useBean id="result" scope="request" type="com.example.main.web_java.Result"/>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -215,6 +214,10 @@
     </table>
   </div>
 
+  <!-- Print Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" onclick="window.print();">Print Marksheet</button>
+  </div>
 </div>
 
 <!-- Bootstrap JS and Dependencies (Popper and Bootstrap Bundle) -->

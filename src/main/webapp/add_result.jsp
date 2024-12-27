@@ -14,6 +14,10 @@
           new String[] {"URED2302", "Principle of Quran and Hadith"}
   );
   request.setAttribute("courses", courses);
+
+  // Get studentName and studentId from the request
+  String studentName = (String) request.getAttribute("studentName");
+  String studentId = (String) request.getAttribute("studentId");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,32 +33,26 @@
       font-family: 'Arial', sans-serif;
       padding-bottom: 50px;
     }
-
     .course-table th {
       background-color: #4a90e2;
       color: white;
       text-align: center;
       font-weight: bold;
     }
-
     .course-table tbody tr:nth-child(odd) {
       background-color: #e9f2ff;
     }
-
     .course-table tbody tr:nth-child(even) {
       background-color: #ffffff;
     }
-
     .course-table tbody tr:hover {
       background-color: #d0e6ff;
       transition: background-color 0.3s ease;
     }
-
     .course-table td, .course-table th {
       vertical-align: middle;
       padding: 15px;
     }
-
     .course-table input {
       width: 100px;
       text-align: center;
@@ -62,7 +60,6 @@
       border-radius: 5px;
       padding: 5px;
     }
-
     .result-container {
       margin-top: 20px;
       background-color: #ffffff;
@@ -70,7 +67,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
     .btn-custom {
       margin-top: 15px;
       padding: 10px 20px;
@@ -78,22 +74,18 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
-
     .btn-custom:hover {
       transform: translateY(-3px);
     }
-
     .grade {
       font-weight: bold;
       color: #28a745;
     }
-
     .final-result {
       font-size: 1.2em;
       font-weight: bold;
       color: #333;
     }
-
     #total-grade {
       margin-top: 15px;
       font-weight: bold;
@@ -110,11 +102,13 @@
   <form action="submit-result" method="post">
     <div class="mb-3">
       <label for="studentName" class="form-label">Student Name</label>
-      <input type="text" class="form-control" id="studentName" name="studentName" required>
+      <input type="text" class="form-control" id="studentName" name="studentName"
+             value="<%= studentName != null ? studentName : "" %>" required>
     </div>
     <div class="mb-3">
       <label for="studentId" class="form-label">Student ID</label>
-      <input type="text" class="form-control" id="studentId" name="studentId" required>
+      <input type="text" class="form-control" id="studentId" name="studentId"
+             value="<%= studentId != null ? studentId : "" %>" required>
     </div>
 
     <table class="table table-bordered course-table">
@@ -156,6 +150,7 @@
 </div>
 
 <script>
+  // Existing JavaScript code remains unchanged
   document.getElementById('calculateResultBtn').addEventListener('click', function () {
     const rows = document.querySelectorAll('.course-table tbody tr');
     let totalGradePoints = 0;

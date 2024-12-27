@@ -119,10 +119,12 @@
                         <button type="submit" class="btn delete-button btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
                     </form>
                     <!-- Add Result Button -->
-                    <form action="add_result.jsp" method="get" style="display:inline;">
+                    <form action="add_result" method="post" style="display:inline;">
+                        <input type="hidden" name="studentName" value="<%= contact.getName() %>">
                         <input type="hidden" name="studentId" value="<%= contact.getStudentId() %>">
                         <button type="submit" class="btn add-result-button btn-sm">Add Result</button>
                     </form>
+
                 </td>
             </tr>
             <%
