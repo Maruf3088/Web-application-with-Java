@@ -18,20 +18,28 @@ public class UpdateContactServlet extends HttpServlet {
         String name = request.getParameter("name");
         String department = request.getParameter("department");
         String section = request.getParameter("section");
+        String semester = request.getParameter("semester"); // New field
+        String fatherName = request.getParameter("fatherName"); // New field
+        String motherName = request.getParameter("motherName"); // New field
+        String address = request.getParameter("address"); // New field
 
         // Validate input data
         if (contactId == null || contactId.isEmpty() ||
                 studentId == null || studentId.isEmpty() ||
                 name == null || name.isEmpty() ||
                 department == null || department.isEmpty() ||
-                section == null || section.isEmpty()) {
+                section == null || section.isEmpty() ||
+                semester == null || semester.isEmpty() ||
+                fatherName == null || fatherName.isEmpty() ||
+                motherName == null || motherName.isEmpty() ||
+                address == null || address.isEmpty()) {
             response.getWriter().println("All fields are required.");
             return;
         }
 
         // Use the common database connection utility
         try (Connection connection = DatabaseConnection.getConnection()) {
-            String sql = "UPDATE contact_form SET studentId = ?, name = ?, department = ?, section = ? WHERE id = ?";
+            String sql = "UPDATE contact_form SET studentId = ?, name = ?, department = ?, section = ?, semester = ?, fatherName = ?, motherName = ?, address = ? WHERE id = ?";
 
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 // Set parameters
@@ -39,7 +47,11 @@ public class UpdateContactServlet extends HttpServlet {
                 statement.setString(2, name);
                 statement.setString(3, department);
                 statement.setString(4, section);
-                statement.setInt(5, Integer.parseInt(contactId));
+                statement.setString(5, semester);  // New field
+                statement.setString(6, fatherName); // New field
+                statement.setString(7, motherName); // New field
+                statement.setString(8, address);    // New field
+                statement.setInt(9, Integer.parseInt(contactId));
 
                 // Execute the update
                 int rowsAffected = statement.executeUpdate();

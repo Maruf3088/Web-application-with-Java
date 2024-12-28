@@ -125,6 +125,12 @@
                         <button type="submit" class="btn add-result-button btn-sm">Add Result</button>
                     </form>
 
+                    <!-- Profile Button -->
+                    <form action="view-profile" method="get" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= contact.getId() %>">
+                        <button type="submit" class="btn btn-primary btn-sm">Profile</button>
+                    </form>
+
                 </td>
             </tr>
             <%

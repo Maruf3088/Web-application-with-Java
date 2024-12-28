@@ -11,37 +11,80 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-
+            margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            display: flex;
-            flex-direction: column;
-            margin-top: 50px;
-            min-height: 90vh;
+            background-color: #f8f9fa;
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            margin-bottom: 20px;
         }
 
         h2 {
             text-align: center;
-            margin-top: 0;
             font-size: 28px;
             color: #333;
+            margin-top: 30px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 20px;
+            color: #555;
+        }
+
+        .search-box {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-box input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            width: 60%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input[type="text"]:focus {
+            border-color: #007bff;
+        }
+
+        .search-box button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: #0056b3;
         }
 
         table {
             width: 100%;
-            margin-top: 20px;
             border-collapse: collapse;
-            border: 1px solid #ddd;
+            margin-top: 20px;
             background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -58,7 +101,7 @@
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
 
         tr:hover {
@@ -69,6 +112,7 @@
             text-align: center;
             color: #ff0000;
             font-size: 18px;
+            margin-top: 20px;
         }
 
         .form-container {
@@ -115,20 +159,55 @@
         button:hover {
             background-color: #c82333;
         }
+        .sort-button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .sort-button-container button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sort-button-container button:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="container">
     <%@ include file="/WEB-INF/includes/navbar.jsp" %>
-    <h2>Student Results</h2>
 
+    <div class="search-box">
+        <h2>Student Results</h2>
+        <h3>Search and view the results of students</h3>
+
+        <form action="search-Result" method="post">
+            <input type="text" id="studentId" name="studentId" placeholder="Enter Student ID" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Sort Button -->
+        <div class="sort-button-container">
+            <button id="sortButton" onclick="sortResults()">Sort by CGPA (Decreasing)</button>
+        </div>
+    </div>
     <%
         List<Result> results = (List<Result>) request.getAttribute("results");
 
         if (results != null && !results.isEmpty()) {
     %>
-    <table>
+
+    <table id="resultsTable">
         <thead>
         <tr>
             <th>SL.</th>
@@ -165,5 +244,21 @@
         }
     %>
 </div>
+
+<script>
+    function sortResults() {
+        const table = document.getElementById("resultsTable");
+        const rows = Array.from(table.rows).slice(1); // Get all table rows except the header row
+        const sortedRows = rows.sort((rowA, rowB) => {
+            const cgpaA = parseFloat(rowA.cells[3].textContent);
+            const cgpaB = parseFloat(rowB.cells[3].textContent);
+            return cgpaB - cgpaA; // Sort in descending order
+        });
+
+        // Append sorted rows back to the table
+        sortedRows.forEach(row => table.appendChild(row));
+    }
+</script>
+
 </body>
 </html>

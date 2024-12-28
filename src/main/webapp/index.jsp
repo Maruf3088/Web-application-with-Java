@@ -98,7 +98,6 @@
         width: 100%;
       }
     }
-
   </style>
 </head>
 <body>
@@ -120,21 +119,42 @@
       <div class="col-md-6">
         <!-- Student ID -->
         <div class="form-group mb-3">
-          <label for="studentId">Student ID <span class="text-danger pt-4">*</span></label>
+          <label for="studentId">Student ID <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Enter student ID" required>
           <div class="invalid-feedback">Please enter the student ID.</div>
         </div>
 
-        <!-- Student Name -->
+        <!-- Full Name -->
         <div class="form-group mb-3">
           <label for="name">Full Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Enter student's full name" required>
           <div class="invalid-feedback">Please enter the student's name.</div>
         </div>
+
+        <!-- Father's Name -->
+        <div class="form-group mb-3">
+          <label for="fatherName">Father's Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="Enter father's name" required>
+          <div class="invalid-feedback">Please enter the father's name.</div>
+        </div>
+        <!--Mother's Name -->
+        <div class="form-group mb-3">
+          <label for="motherName">Father's Name <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Enter mother's name" required>
+          <div class="invalid-feedback">Please enter the mother's name.</div>
+        </div>
+
+
       </div>
 
       <!-- Right Column -->
       <div class="col-md-6">
+        <!-- Address -->
+        <div class="form-group mb-3">
+          <label for="address">Address <span class="text-danger">*</span></label>
+          <textarea class="form-control" id="address" name="address"  rows="1" placeholder="Enter address" required></textarea>
+          <div class="invalid-feedback">Please enter the address.</div>
+        </div>
         <!-- Department -->
         <div class="form-group mb-3">
           <label for="department">Department Name <span class="text-danger">*</span></label>
@@ -148,7 +168,15 @@
           <input type="text" class="form-control" id="section" name="section" placeholder="Enter section name" required>
           <div class="invalid-feedback">Please enter the section name.</div>
         </div>
-      </div>
+
+        <!-- Semester -->
+        <div class="form-group mb-3">
+          <label for="semester">Semester <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="semester" name="semester" placeholder="Enter semester" required>
+          <div class="invalid-feedback">Please enter the semester.</div>
+        </div>
+
+
     </div>
 
     <!-- Submit Button -->

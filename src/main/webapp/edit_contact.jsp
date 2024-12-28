@@ -44,7 +44,6 @@
     <form action="update-contact" method="post" >
         <input type="hidden" name="id" value="<%= contact.getId() %>">
 
-
         <!-- Student ID Field -->
         <div class="mb-3">
             <label for="studentId" class="form-label">Student ID:</label>
@@ -63,12 +62,34 @@
             <input type="text" class="form-control" id="department" name="department" value="<%= contact.getDepartment() %>" required>
         </div>
 
-
-
         <!-- Section Field -->
         <div class="mb-3">
             <label for="section" class="form-label">Section:</label>
             <input type="text" class="form-control" id="section" name="section" value="<%= contact.getSection() %>" required>
+        </div>
+
+        <!-- Semester Field (New Field) -->
+        <div class="mb-3">
+            <label for="semester" class="form-label">Semester:</label>
+            <input type="text" class="form-control" id="semester" name="semester" value="<%= contact.getSemester() %>" required>
+        </div>
+
+        <!-- Father's Name Field (New Field) -->
+        <div class="mb-3">
+            <label for="fatherName" class="form-label">Father's Name:</label>
+            <input type="text" class="form-control" id="fatherName" name="fatherName" value="<%= contact.getFatherName() %>" required>
+        </div>
+
+        <!-- Mother's Name Field (New Field) -->
+        <div class="mb-3">
+            <label for="motherName" class="form-label">Mother's Name:</label>
+            <input type="text" class="form-control" id="motherName" name="motherName" value="<%= contact.getMotherName() %>" required>
+        </div>
+
+        <!-- Address Field (New Field) -->
+        <div class="mb-3">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" value="<%= contact.getAddress() %>" required>
         </div>
 
         <!-- Submit Button -->

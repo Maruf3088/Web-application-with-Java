@@ -7,8 +7,8 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet("/edit-contact")
-public class EditContactServlet extends HttpServlet {
+@WebServlet("/view-profile")
+public class ViewProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,8 +33,9 @@ public class EditContactServlet extends HttpServlet {
                         contact.setAddress(resultSet.getString("address")); // New field: Address
 
 
+                        // Pass the contact object to the JSP
                         request.setAttribute("contact", contact);
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("edit_contact.jsp");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("view_profile.jsp");
                         dispatcher.forward(request, response);
                     } else {
                         response.getWriter().println("Contact not found.");
