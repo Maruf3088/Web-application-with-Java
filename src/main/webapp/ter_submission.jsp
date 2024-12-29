@@ -23,9 +23,7 @@
             border-radius: 8px;
         }
 
-
-
-       .container  h1 {
+        .container h1 {
             text-align: center;
             margin-bottom: 20px;
             color: #00B2FF;
@@ -52,8 +50,6 @@
         tr:nth-child(even) {
             background-color: #c8edf3;
         }
-
-
 
         .custom-radio input {
             display: none;
@@ -127,6 +123,9 @@
                 }
             });
 
+            // Update hidden input with TER score
+            document.getElementById("terScoreInput").value = totalScore;
+
             const resultTable = document.getElementById("terResultTable");
             const scoreCell = document.getElementById("terScore");
             const commentCell = document.getElementById("terComment");
@@ -136,7 +135,7 @@
             if (totalScore >= 80) {
                 commentCell.innerText = "Excellent performance! Keep up the great work.";
             } else if (totalScore >= 50) {
-                commentCell.innerText = "Good, but there's room for improvement.";
+                commentCell.innerText = "Good effort! A few areas need more focus.";
             } else {
                 commentCell.innerText = "Needs significant improvement.";
             }
@@ -146,8 +145,6 @@
     </script>
 </head>
 <body>
-
-
 
 <div class="container">
     <div><%@ include file="/WEB-INF/includes/navbar.jsp" %></div>
@@ -173,6 +170,9 @@
 
     <!-- TER form -->
     <form action="submit-ter" method="POST">
+        <input type="hidden" name="teacherName" value="${teacher.name}">
+        <input type="hidden" name="course" value="${teacher.course}">
+        <input type="hidden" id="terScoreInput" name="score">
         <table>
             <thead>
             <tr>
@@ -198,7 +198,6 @@
                 <td class="custom-radio"><input type="radio" name="knowledge" value="5" id="know3"><label for="know3"></label></td>
                 <td class="custom-radio"><input type="radio" name="knowledge" value="10" id="know4"><label for="know4"></label></td>
             </tr>
-            <!-- Add remaining 8 rows similarly -->
             <tr>
                 <td>Classroom Management</td>
                 <td class="custom-radio"><input type="radio" name="management" value="0" id="manage1" required><label for="manage1"></label></td>
@@ -228,59 +227,60 @@
                 <td class="custom-radio"><input type="radio" name="engagement" value="10" id="engage4"><label for="engage4"></label></td>
             </tr>
             <tr>
-                <td>Problem Solving</td>
-                <td class="custom-radio"><input type="radio" name="problemSolving" value="0" id="solve1" required><label for="solve1"></label></td>
-                <td class="custom-radio"><input type="radio" name="problemSolving" value="2" id="solve2"><label for="solve2"></label></td>
-                <td class="custom-radio"><input type="radio" name="problemSolving" value="5" id="solve3"><label for="solve3"></label></td>
-                <td class="custom-radio"><input type="radio" name="problemSolving" value="10" id="solve4"><label for="solve4"></label></td>
+                <td>Availability</td>
+                <td class="custom-radio"><input type="radio" name="availability" value="0" id="avail1" required><label for="avail1"></label></td>
+                <td class="custom-radio"><input type="radio" name="availability" value="2" id="avail2"><label for="avail2"></label></td>
+                <td class="custom-radio"><input type="radio" name="availability" value="5" id="avail3"><label for="avail3"></label></td>
+                <td class="custom-radio"><input type="radio" name="availability" value="10" id="avail4"><label for="avail4"></label></td>
             </tr>
             <tr>
-                <td>Respect Towards Students</td>
-                <td class="custom-radio"><input type="radio" name="respect" value="0" id="respect1" required><label for="respect1"></label></td>
-                <td class="custom-radio"><input type="radio" name="respect" value="2" id="respect2"><label for="respect2"></label></td>
-                <td class="custom-radio"><input type="radio" name="respect" value="5" id="respect3"><label for="respect3"></label></td>
-                <td class="custom-radio"><input type="radio" name="respect" value="10" id="respect4"><label for="respect4"></label></td>
+                <td>Feedback & Support</td>
+                <td class="custom-radio"><input type="radio" name="feedback" value="0" id="feed1" required><label for="feed1"></label></td>
+                <td class="custom-radio"><input type="radio" name="feedback" value="2" id="feed2"><label for="feed2"></label></td>
+                <td class="custom-radio"><input type="radio" name="feedback" value="5" id="feed3"><label for="feed3"></label></td>
+                <td class="custom-radio"><input type="radio" name="feedback" value="10" id="feed4"><label for="feed4"></label></td>
             </tr>
             <tr>
-                <td>Use of Technology</td>
-                <td class="custom-radio"><input type="radio" name="technology" value="0" id="tech1" required><label for="tech1"></label></td>
-                <td class="custom-radio"><input type="radio" name="technology" value="2" id="tech2"><label for="tech2"></label></td>
-                <td class="custom-radio"><input type="radio" name="technology" value="5" id="tech3"><label for="tech3"></label></td>
-                <td class="custom-radio"><input type="radio" name="technology" value="10" id="tech4"><label for="tech4"></label></td>
+                <td>Assignments & Grading</td>
+                <td class="custom-radio"><input type="radio" name="assignments" value="0" id="assign1" required><label for="assign1"></label></td>
+                <td class="custom-radio"><input type="radio" name="assignments" value="2" id="assign2"><label for="assign2"></label></td>
+                <td class="custom-radio"><input type="radio" name="assignments" value="5" id="assign3"><label for="assign3"></label></td>
+                <td class="custom-radio"><input type="radio" name="assignments" value="10" id="assign4"><label for="assign4"></label></td>
             </tr>
             <tr>
-                <td>Encouraging Creativity</td>
-                <td class="custom-radio"><input type="radio" name="creativity" value="0" id="creative1" required><label for="creative1"></label></td>
-                <td class="custom-radio"><input type="radio" name="creativity" value="2" id="creative2"><label for="creative2"></label></td>
-                <td class="custom-radio"><input type="radio" name="creativity" value="5" id="creative3"><label for="creative3"></label></td>
-                <td class="custom-radio"><input type="radio" name="creativity" value="10" id="creative4"><label for="creative4"></label></td>
+                <td>Course Content</td>
+                <td class="custom-radio"><input type="radio" name="content" value="0" id="content1" required><label for="content1"></label></td>
+                <td class="custom-radio"><input type="radio" name="content" value="2" id="content2"><label for="content2"></label></td>
+                <td class="custom-radio"><input type="radio" name="content" value="5" id="content3"><label for="content3"></label></td>
+                <td class="custom-radio"><input type="radio" name="content" value="10" id="content4"><label for="content4"></label></td>
             </tr>
 
             </tbody>
         </table>
 
-        <!-- Calculate TER and Submit buttons -->
         <div class="button-container">
             <button type="button" onclick="calculateTER()">Calculate TER</button>
             <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
         </div>
+
+        <!-- TER Result Table -->
+        <table id="terResultTable">
+            <thead>
+            <tr>
+                <th>TER Score</th>
+                <th>Comment</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td id="terScore">0</td>
+                <td id="terComment">N/A</td>
+            </tr>
+            </tbody>
+        </table>
     </form>
 
-    <!-- Display TER result -->
-    <table id="terResultTable">
-        <thead>
-        <tr>
-            <th>TER Score</th>
-            <th>Comments</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="fw-bold" id="terScore">0</td>
-            <td class="fw-bold" id="terComment">-</td>
-        </tr>
-        </tbody>
-    </table>
 </div>
 
 </body>

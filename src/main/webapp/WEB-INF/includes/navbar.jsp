@@ -60,6 +60,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= request.getContextPath() %>/ter-page">TER</a>
         </li>
+          <li class="nav-item">
+              <a class="nav-link" href="<%= request.getContextPath() %>/view-ter">TER Result</a>
+          </li>
 
         <%-- Check if the user is logged in --%>
         <%
