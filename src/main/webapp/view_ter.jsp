@@ -61,7 +61,7 @@
     <%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
     <div class="table-container">
-        <h1 class="text-center page-header ">Teacher Information</h1>
+        <h1 class="text-center page-header ">TER Result</h1>
 
         <!-- Table to display teacher data -->
         <table class="table table-bordered table-striped table-hover">

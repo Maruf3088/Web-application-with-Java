@@ -179,6 +179,40 @@
         .sort-button-container button:hover {
             background-color: #0056b3;
         }
+        /* Add styles to align and space out buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+            justify-content: center; /* Center buttons */
+            align-items: center;
+        }
+
+        .action-buttons button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+
+        .marksheet-button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .marksheet-button:hover {
+            background-color: #0056b3;
+        }
 
     </style>
 </head>
@@ -225,11 +259,19 @@
             <td><%= result.getStudentName() %></td>
             <td><%= result.getCgpa() %></td>
             <td>
-                <!-- Delete Button -->
-                <form action="<%= request.getContextPath() %>/delete-result" method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="<%= result.getId() %>">
-                    <button type="submit" onclick="return confirm('Are you sure you want to delete this result?')">Delete</button>
-                </form>
+                <div class="action-buttons">
+                    <!-- Delete Button -->
+                    <form action="<%= request.getContextPath() %>/delete-result" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= result.getId() %>">
+                        <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this result?')">Delete</button>
+                    </form>
+
+                    <!-- Marksheet Button -->
+                    <form action="search-Result" method="post">
+                        <input type="hidden" name="studentId" value="<%= result.getStudentId() %>">
+                        <button type="submit" class="marksheet-button">Marksheet</button>
+                    </form>
+                </div>
             </td>
         </tr>
         <% } %>
