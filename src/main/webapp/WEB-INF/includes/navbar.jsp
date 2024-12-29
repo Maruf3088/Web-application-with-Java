@@ -53,6 +53,15 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= request.getContextPath() %>/search.jsp">Search</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= request.getContextPath() %>/add_teacher.jsp">Add Teacher</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= request.getContextPath() %>/view-teacher">All Teacher</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= request.getContextPath() %>/ter-page">TER</a>
+        </li>
 
         <%-- Check if the user is logged in --%>
         <%
