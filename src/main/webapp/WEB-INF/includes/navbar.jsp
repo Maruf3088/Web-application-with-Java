@@ -50,9 +50,7 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= request.getContextPath() %>/view-result">Result</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= request.getContextPath() %>/search.jsp">Search</a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="<%= request.getContextPath() %>/add_teacher.jsp">Add Teacher</a>
         </li>
@@ -81,6 +79,9 @@
         <%-- Show Sign Out button if the user is logged in --%>
         <li class="nav-item">
           <a class="nav-link" href="<%= request.getContextPath() %>/logout.jsp">Sign Out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= request.getContextPath() %>/my-account">Admin</a>
         </li>
         <%
           }

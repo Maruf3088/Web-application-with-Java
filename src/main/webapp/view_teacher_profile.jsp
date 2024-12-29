@@ -97,7 +97,7 @@
 
 <div class="profile-container">
   <div> <%@ include file="/WEB-INF/includes/navbar.jsp" %></div>
-  <h2>Teacher Profile</h2>
+  <h2 class="mt-4">Teacher Profile</h2>
   <h3>View your profile details below</h3>
 
   <!-- Check if the teacher object exists -->
@@ -114,7 +114,6 @@
       </tr>
       </thead>
       <tbody>
-
       <tr>
         <th>Name:</th>
         <td><%= teacher.getName() %></td>
@@ -151,7 +150,7 @@
   %>
 
   <!-- Back Button -->
-  <a href="index.jsp" class="back-button">Back to Home</a>
+  <a href="index.jsp" class="back-button">Back</a>
 </div>
 
 </body>

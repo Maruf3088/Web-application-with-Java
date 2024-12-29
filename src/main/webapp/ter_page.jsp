@@ -33,23 +33,33 @@
             font-weight: 700;
         }
 
+        h2 {
+            color: #495057;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
         h3 {
             color: #6c757d;
             text-align: center;
             font-size: 22px;
             margin-bottom: 30px;
+            font-weight: 500;
         }
 
         .teacher-button {
-            padding: 10px 20px;
+            padding: 6px 15px;
             background-color: #28a745;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 20px;
+            font-size: 14px;
             text-align: center;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .teacher-button:hover {
@@ -66,7 +76,7 @@
         .teacher-list-table th, .teacher-list-table td {
             padding: 15px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #dee2e6;
             font-size: 16px;
         }
 
@@ -74,6 +84,7 @@
             background-color: #007bff;
             color: white;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         .teacher-list-table tr:nth-child(even) {
@@ -102,8 +113,9 @@
         <%@ include file="/WEB-INF/includes/navbar.jsp" %>
     </div>
 
-    <h1>TER</h1>
-    <h3>Click on a teacher's name to submit TER</h3>
+
+    <h2 class="mt-4"><strong>Submit Your TER</strong></h2>
+    <h3><strong>Click on a teacher's name below to proceed:</strong></h3>
 
     <table class="teacher-list-table">
         <thead>

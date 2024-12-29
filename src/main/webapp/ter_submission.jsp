@@ -28,7 +28,7 @@
        .container  h1 {
             text-align: center;
             margin-bottom: 20px;
-            color: #4CAF50;
+            color: #00B2FF;
         }
 
         table {
@@ -44,18 +44,16 @@
         }
 
         th {
-            background-color: #4CAF50;
+            background-color: #00B2FF;
             color: white;
             font-weight: bold;
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #c8edf3;
         }
 
-        tr:hover {
-            background-color: #eaf7ea;
-        }
+
 
         .custom-radio input {
             display: none;
@@ -72,7 +70,7 @@
         }
 
         .custom-radio input:checked + label {
-            background-color: #4CAF50;
+            background-color: #00B2FF;
         }
 
         .custom-radio label:hover {
@@ -87,7 +85,7 @@
         button {
             padding: 10px 20px;
             margin-right: 10px;
-            background-color: #4CAF50;
+            background-color: #00B2FF;
             color: white;
             border: none;
             border-radius: 5px;
@@ -96,7 +94,7 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #00B2FF;
         }
 
         #terResultTable {
@@ -113,7 +111,7 @@
         }
 
         #terResultTable th {
-            background-color: #4CAF50;
+            background-color: #00B2FF;
             color: white;
         }
     </style>
@@ -153,7 +151,7 @@
 
 <div class="container">
     <div><%@ include file="/WEB-INF/includes/navbar.jsp" %></div>
-    <h1>TER Submission</h1>
+    <h1 class="mt-4 fw-bold">TER Submission</h1>
 
     <!-- Teacher details -->
     <table>
@@ -166,9 +164,9 @@
         </thead>
         <tbody>
         <tr>
-            <td>${teacher.name}</td>
-            <td>${teacher.department}</td>
-            <td>${teacher.course}</td>
+            <td class="fw-bold">${teacher.name}</td>
+            <td class="fw-bold">${teacher.department}</td>
+            <td class="fw-bold">${teacher.course}</td>
         </tr>
         </tbody>
     </table>
@@ -278,8 +276,8 @@
         </thead>
         <tbody>
         <tr>
-            <td id="terScore">0</td>
-            <td id="terComment">-</td>
+            <td class="fw-bold" id="terScore">0</td>
+            <td class="fw-bold" id="terComment">-</td>
         </tr>
         </tbody>
     </table>
