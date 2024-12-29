@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Student | Student Management System</title>
   <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       background-color: #f4f7fc;
@@ -139,7 +140,7 @@
         </div>
         <!--Mother's Name -->
         <div class="form-group mb-3">
-          <label for="motherName">Father's Name <span class="text-danger">*</span></label>
+          <label for="motherName">Mother's Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Enter mother's name" required>
           <div class="invalid-feedback">Please enter the mother's name.</div>
         </div>

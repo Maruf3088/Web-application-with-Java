@@ -217,6 +217,8 @@
   <!-- Print Button -->
   <div class="text-center mt-4">
     <button class="btn btn-primary" onclick="window.print();">Print Marksheet</button>
+    <!-- Back Button -->
+    <a href="javascript:window.history.back();" class="back-button btn btn-danger">Back</a>
   </div>
 </div>
 

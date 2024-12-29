@@ -44,13 +44,13 @@
             font-size: 0.9rem;
         }
         .edit-button {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #fdfa00;
+            color: black;
             border: none;
             transition: background-color 0.3s;
         }
         .edit-button:hover {
-            background-color: #45a049;
+            background-color: rgba(253, 250, 0, 0.73);
         }
         .delete-button {
             background-color: #f44336;
@@ -74,6 +74,11 @@
             text-align: center;
             font-size: 1.2rem;
             color: #888;
+        }
+        .actions .btn {
+            padding: 6px 10px; /* Reduced padding for smaller buttons */
+            font-size: 0.8rem;  /* Smaller font size */
+            margin: 1px;  /* Slightly reduced margin */
         }
     </style>
 </head>
@@ -116,7 +121,7 @@
                     <!-- Delete Button -->
                     <form action="delete-contact" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<%= contact.getId() %>">
-                        <button type="submit" class="btn delete-button btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
+                        <button type="submit" class="btn delete-button " onclick="return confirm('Are you sure you want to delete this student?')">Delete</button>
                     </form>
                     <!-- Add Result Button -->
                     <form action="add_result" method="post" style="display:inline;">

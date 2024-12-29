@@ -163,7 +163,8 @@
     %>
 
     <!-- Back Button -->
-    <a href="index.jsp" class="back-button">Back to Home</a>
+    <a href="javascript:window.history.back();" class="back-button">Back</a>
+
 </div>
 
 </body>

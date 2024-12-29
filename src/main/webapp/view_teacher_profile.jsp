@@ -150,7 +150,8 @@
   %>
 
   <!-- Back Button -->
-  <a href="index.jsp" class="back-button">Back</a>
+  <a href="javascript:window.history.back();" class="back-button">Back</a>
+
 </div>
 
 </body>

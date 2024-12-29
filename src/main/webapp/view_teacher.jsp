@@ -1,9 +1,10 @@
 <%@ page import="com.example.main.web_java.Teacher" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Data</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -41,20 +42,27 @@
             font-size: 1.2rem;
             color: #888;
         }
-        .dropdown-menu {
-            font-size: 0.9rem;
-        }
         .action-button {
-            background-color: #007bff;
-            color: white;
-            padding: 5px 10px;
+            padding: 5px 15px;
             font-size: 0.9rem;
             border-radius: 5px;
             border: none;
             transition: background-color 0.3s;
         }
         .action-button:hover {
-            background-color: #0056b3;
+            opacity: 0.8;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            color: #333;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
         }
     </style>
 </head>
@@ -89,32 +97,27 @@
                 <td><%= teacher.getEmail() %></td>
                 <td><%= teacher.getCourse() %></td>
                 <td>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle action-button" type="button" id="actionMenu<%= teacher.getId() %>" data-bs-toggle="dropdown" aria-expanded="false">
-                            Actions
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="actionMenu<%= teacher.getId() %>">
-                            <li>
-                                <form action="edit-teacher" method="get">
-                                    <input type="hidden" name="id" value="<%= teacher.getId() %>">
-                                    <button type="submit" class="dropdown-item">Edit</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="delete-teacher" method="post" onsubmit="return confirm('Are you sure you want to delete this teacher?')">
-                                    <input type="hidden" name="id" value="<%= teacher.getId() %>">
-                                    <button type="submit" class="dropdown-item">Delete</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="view-teacher-profile" method="get">
-                                    <input type="hidden" name="id" value="<%= teacher.getId() %>">
-                                    <button type="submit" class="dropdown-item">Profile</button>
-                                </form>
-                            </li>
-                        </ul>
+                    <div class="d-flex justify-content-start">
+                        <!-- Edit Button (Yellow) -->
+                        <form action="edit-teacher" method="get" class="me-2">
+                            <input type="hidden" name="id" value="<%= teacher.getId() %>">
+                            <button type="submit" class="btn btn-warning text-dark action-button">Edit</button>
+                        </form>
+
+                        <!-- Delete Button (Red) -->
+                        <form action="delete-teacher" method="post" onsubmit="return confirm('Are you sure you want to delete this teacher?')" class="me-2">
+                            <input type="hidden" name="id" value="<%= teacher.getId() %>">
+                            <button type="submit" class="btn btn-danger action-button">Delete</button>
+                        </form>
+
+                        <!-- Profile Button (Blue) -->
+                        <form action="view-teacher-profile" method="get">
+                            <input type="hidden" name="id" value="<%= teacher.getId() %>">
+                            <button type="submit" class="btn btn-primary action-button">Profile</button>
+                        </form>
                     </div>
                 </td>
+
             </tr>
             <%
                 }
