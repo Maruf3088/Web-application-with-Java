@@ -1,69 +1,21 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Student Management System</title>
-    <!-- Link to local Bootstrap CSS -->
-    <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
+        /* Global Styles */
+
         body {
+            font-family: Arial, sans-serif;
             background-color: #f4f7fc;
             color: #333;
-            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
-
-        .header {
-            background-color: #4a90e2;
-            color: white;
-            padding: 20px;
-
-            text-align: center;
-        }
-
-        .section {
-            margin-top: 30px;
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-custom {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-weight: bold;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-custom:hover {
-            transform: translateY(-3px);
-        }
-
-        .feature-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .feature-list li {
-            margin-bottom: 10px;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #4a90e2;
-            color: white;
-            margin-top: 30px;
-        }
-
         .container {
             width: 90%;
             max-width: 1200px;
@@ -71,52 +23,138 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        /* Navigation Bar */
+        .navbar {
+            background-color: #007bff;
+        }
+
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Content Section */
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+        }
+
+        .content h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .content ul li {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Button Style */
+        .btn-custom {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            margin-top: 30px;
         }
     </style>
 </head>
-<body>
-
-<div class="container mt-5">
+<body class="container">
+<!-- Navigation Bar -->
+<nav class="">
     <%@ include file="/WEB-INF/includes/navbar.jsp" %>
+</nav>
 
-    <div class="header">
-        <h1>Student Management System</h1>
-        <p class="lead">Manage student information and academic performance with ease.</p>
-    </div>
+<!-- Header Section -->
+<div class="header">
+    <h1>About Us</h1>
+    <p>Learn more about the Student Management System and its features.</p>
+</div>
 
-    <div class="section">
-        <h3>About This System</h3>
-        <p>
-            The Student Management System (SMS) is a powerful tool designed to manage and track student records in a user-friendly interface. The system aims to streamline administrative tasks such as storing student data, calculating grades, and generating reports, making it a valuable tool for academic institutions.
-        </p>
+<!-- Content Section -->
+<div class="content">
+    <h3>About This System</h3>
+    <p>The Student Management System (SMS) is designed to simplify and manage student records efficiently. It helps academic institutions track and manage data effectively.</p>
 
-        <h4>Key Features:</h4>
-        <ul class="feature-list">
-            <li>Student Enrollment & Management</li>
-            <li>Course Registration & Management</li>
-            <li>Real-time Grade Calculation</li>
-            <li>Attendance Tracking</li>
-            <li>Assignment & Exam Results Recording</li>
-            <li>Generate Transcripts & Reports</li>
-            <li>Manage Multiple Students with Ease</li>
-        </ul>
+    <h4>Key Features:</h4>
+    <ul>
+        <li>Student Enrollment & Management</li>
+        <li>Course Registration & Tracking</li>
+        <li>Real-time Grade Calculation</li>
+        <li>Attendance Management</li>
+        <li>Assignment & Exam Recording</li>
+        <li>Report & Transcript Generation</li>
+    </ul>
 
-        <h4>How It Works:</h4>
-        <p>
-            The system allows administrators and faculty members to manage students' information, including personal details, courses, grades, and attendance. With a simple interface, users can easily input data, calculate grades, and generate results.
-        </p>
+    <h4>How It Works:</h4>
+    <p>The system offers an intuitive interface to manage personal details, grades, and attendance. Administrators and faculty can update and analyze student performance effortlessly.</p>
 
-        <div class="d-flex justify-content-center">
-            <a href="index.jsp" class="btn btn-custom">Back to Home</a>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2024 Student Management System | All Rights Reserved</p>
+    <div class="text-center">
+        <a href="index.jsp" class="btn-custom">Back to Home</a>
     </div>
 </div>
 
-<!-- Link to local Bootstrap JS and dependencies -->
-<script src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
+<!-- Footer Section -->
+<div class="footer">
+    <p>&copy; 2024 Maruf Creations | All Rights Reserved</p>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
