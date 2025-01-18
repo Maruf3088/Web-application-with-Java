@@ -94,7 +94,7 @@
     <!-- Login Container -->
     <div class="login-container">
 
-        <h1>Login</h1>
+        <h1>Admin Login</h1>
 
         <!-- Login Form Start -->
         <form action="<%= request.getContextPath() %>/SignInServlet" method="post">

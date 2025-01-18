@@ -15,8 +15,8 @@
         }
 
         .container {
-            max-width: 1100px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 0px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -6,157 +6,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Teacher | Teacher Management System</title>
   <link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #f4f7fc;
-      font-family: 'Arial', sans-serif;
+    :root {
+      --primary-color: #4a90e2;
+      --secondary-color: #50c878;
+      --background-color: #f0f4f8;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --input-bg: #f9f9f9;
+      --input-border: #e0e0e0;
+      --input-focus: #4a90e2;
     }
+
+    body {
+      background-color: var(--background-color);
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-color);
+    }
+
     .container {
-      width: 90%;
       max-width: 1200px;
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
     }
 
     .header {
       text-align: center;
       margin-bottom: 40px;
+      animation: fadeInDown 1s ease;
     }
 
     .header h1 {
+      color: var(--primary-color);
       font-weight: 700;
-      color: #333;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
     .header p {
-      color: #555;
+      color: #777;
+      font-size: 1.1rem;
     }
 
     .form-group label {
       font-weight: 600;
-      color: #333;
+      color: var(--text-color);
+      margin-bottom: 8px;
     }
 
     .form-control {
-      border-radius: 8px;
+      background-color: var(--input-bg);
+      border: 2px solid var(--input-border);
+      border-radius: 10px;
       padding: 12px;
       font-size: 16px;
+      transition: all 0.3s ease;
     }
 
     .form-control:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+      border-color: var(--input-focus);
+      box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
     }
 
     .btn-primary {
-      background-color: #28a745;
+      background-color: var(--primary-color);
       border: none;
-      border-radius: 30px;
+      border-radius: 10px;
       padding: 12px 24px;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .btn-primary:hover {
-      background-color: #218838;
-    }
-
-    .btn-primary:focus {
-      box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+      background-color: #3a7bc8;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .invalid-feedback {
       font-size: 14px;
+      color: #ff6b6b;
+      margin-top: 5px;
     }
 
-    .form-row {
-      margin-bottom: 20px;
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .col-md-6 {
-      flex: 1;
-    }
-
-    /* Media Queries for Mobile */
     @media (max-width: 768px) {
       .container {
-        padding: 15px;
-      }
-      .row {
-        flex-direction: column;
-      }
-      .col-md-6 {
-        width: 100%;
+        padding: 30px;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="container mt-5 p-4 bg-white rounded shadow">
+<div class="container ">
   <%@ include file="/WEB-INF/includes/navbar.jsp" %>
 
-  <!-- Header Section -->
-  <div class="header">
-    <h1 class="h2 pt-4">Teacher Management System</h1>
-    <h4 class="fw-bold">Add New Teacher</h4>
-    <p class="text-muted">Please fill in the teacher's information to add them to the system.</p>
+  <div class="header mt-4">
+    <h1>Teacher Management System</h1>
+    <p>Add a New Teacher to the System</p>
   </div>
 
-  <!-- Add Teacher Form -->
   <form action="submit-teacher-form" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
     <div class="row">
-      <!-- Left Column -->
       <div class="col-md-6">
-        <!-- Name -->
         <div class="form-group mb-3">
           <label for="name">Full Name <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Enter teacher's full name" required>
           <div class="invalid-feedback">Please enter the teacher's name.</div>
         </div>
 
-        <!-- Department -->
         <div class="form-group mb-3">
           <label for="department">Department <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="department" name="department" placeholder="Enter department name" required>
           <div class="invalid-feedback">Please enter the department.</div>
         </div>
 
-        <!-- Phone Number -->
         <div class="form-group mb-3">
           <label for="phone">Phone Number <span class="text-danger">*</span></label>
           <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter phone number" required>
-          <div class="invalid-feedback">Please enter the phone number.</div>
+          <div class="invalid-feedback">Please enter a valid phone number.</div>
         </div>
-
       </div>
 
-      <!-- Right Column -->
       <div class="col-md-6">
-        <!-- Email -->
         <div class="form-group mb-3">
           <label for="email">Email <span class="text-danger">*</span></label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" required>
           <div class="invalid-feedback">Please enter a valid email address.</div>
         </div>
 
-        <!-- Course -->
         <div class="form-group mb-3">
           <label for="course">Course <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="course" name="course" placeholder="Enter course name" required>
           <div class="invalid-feedback">Please enter the course name.</div>
         </div>
 
-        <!-- Gender -->
         <div class="form-group mb-3">
           <label for="gender">Gender <span class="text-danger">*</span></label>
           <select class="form-control" id="gender" name="gender" required>
@@ -167,22 +182,17 @@
           </select>
           <div class="invalid-feedback">Please select the gender.</div>
         </div>
-
       </div>
-
     </div>
 
-    <!-- Submit Button -->
     <div class="text-center mt-4">
       <button type="submit" class="btn btn-primary">Add Teacher</button>
     </div>
   </form>
 </div>
 
-<!-- Bootstrap JS -->
 <script src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
 <script>
-  // Bootstrap form validation
   (function () {
     'use strict';
     var forms = document.querySelectorAll('.needs-validation');
@@ -197,6 +207,15 @@
     });
   })();
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const formElements = document.querySelectorAll('.form-group');
+    formElements.forEach((element, index) => {
+      element.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
+    });
+  });
+</script>
 
 </body>
 </html>
+

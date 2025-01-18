@@ -95,7 +95,7 @@
   </style>
 </head>
 <body>
-<div class="container mt-5">
+<div class="container ">
   <%@ include file="/WEB-INF/includes/navbar.jsp" %>
   <h2 class="text-center text-primary fw-bold pt-4">Add Student Result</h2>
 

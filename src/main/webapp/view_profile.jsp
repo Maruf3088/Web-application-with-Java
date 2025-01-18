@@ -16,8 +16,8 @@
         }
 
         .profile-container {
-            max-width: 1100px;
-            margin: 50px auto;
+            max-width: 1200px;
+            margin: 0px auto;
             background-color: white;
             padding: 40px;
             border-radius: 10px;
